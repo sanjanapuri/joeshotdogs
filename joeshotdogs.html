@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset ="utf-8">
+	<title>Joe's Hotdogs</title>
+	<link rel="stylesheet" href="joesstyles.css">
+</head>
+<!-- WHAT IF LAST IS 0 4 4 4-->
+
+<body>
+	<h1>Joe's Hotdogs!</h1>
+	<script language ="javascript">
+		alert("Welcome to Joe's Hotdogs! Hotdogs are $3.25, French Fries are $2.00 and Drinks are $1.50!");
+		hotdogs = prompt("How many hotdogs ($3.25) would you like?"); 
+		frenchfries = prompt("How many french fry orders ($2.00) would you like?"); 
+		drinks = prompt("How many drinks ($1.50) would you like?"); 
+
+		htotal = parseFloat(hotdogs)*3.25; 
+		ftotal = parseFloat(frenchfries)*2.00; 
+		dtotal = parseFloat(drinks)*1.50; 
+
+		htotald = htotal.toFixed(2); 
+		ftotald = ftotal.toFixed(2); 
+		dtotald = dtotal.toFixed(2); 
+
+		total = htotal + ftotal + dtotal; 
+		inttotal = parseFloat(total); 
+		inttotal2 = inttotal.toFixed(2); 
+		 
+		document.write("<h2>Receipt: </h2>"); 
+		document.write("<table>"); 
+
+		document.write("<tr>"); 
+		document.write("<td><h3>" + hotdogs + " HOTDOG(S)</h3></td>"); 
+		document.write("<td><h3> $" + htotald + "</h3></td>"); 
+		document.write("</tr>"); 
+
+		document.write("<tr>"); 
+		document.write("<td><h3>" + frenchfries + " ORDER(S) FRENCH FRIES</h3></td>"); 
+		document.write("<td><h3> $" + ftotald + "</h3></td>"); 
+		document.write("</tr>"); 
+
+		document.write("<tr>"); 
+		document.write("<td><h3>" + drinks + " DRINK(S)</h3></td>"); 
+		document.write("<td><h3> $" + dtotald + "</h3></td>"); 
+		document.write("</tr>"); 
+
+		document.write("<tr>"); 
+		document.write("<td><h3> SUBTOTAL </h3></td>"); 
+		document.write("<td><h3> $" + inttotal2 + "</h3></td>"); 
+		document.write("</tr>"); 
+
+		if(inttotal >= 20.0){
+			discount = parseFloat(inttotal) - .1*parseFloat((inttotal)); 
+			discounted = .1*parseFloat((inttotal));
+			discounted = discounted.toFixed(2); 
+
+			taxed = .0625*(discount);
+			taxed = parseFloat(taxed); 
+			taxed = taxed.toFixed(2); /*Tax*/
+
+
+			offtotal = .0625*(discount) + discount; 
+			offtotal2 = offtotal.toFixed(2); 
+
+			document.write("<tr>");
+			document.write("<td><h3> JOE'S SPECIAL DISCOUNT (-10%)</h3></td>");
+			document.write("<td><h3> -$" + discounted + "</h3></td>"); 
+			document.write("</tr>"); 
+
+			document.write("<tr>");
+			document.write("<td><h3> TAX (6.25%) </h3></td>");
+			document.write("<td><h3> $" + taxed + "</h3></td>"); 
+			document.write("</tr>"); 
+
+
+			document.write("<tr>"); 
+			document.write("<td><h4> TOTAL </h4></td>"); 
+			document.write("<td><h4> $" + offtotal2 + "</h4></td>"); 
+			document.write("</tr>");
+		} else {
+			tax = .0625*inttotal; 
+			tax1 = tax + inttotal; 
+			tax2 = tax1.toFixed(2);
+			tax = tax.toFixed(2); 
+
+			document.write("<tr>");
+			document.write("<td><h3> TAX </h3></td>");
+			document.write("<td><h3> $" + tax + "</h3></td>"); 
+			document.write("</tr>"); 
+
+			document.write("<tr>"); 
+			document.write("<td><h4> TOTAL </h4></td>"); 
+			document.write("<td><h4> $" + tax2 + "</h4></td>"); 
+			document.write("</tr>");
+		}
+
+		document.write("</table>"); 
+	</script>
+
+
+</body>
+</html>
